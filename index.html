@@ -1,65 +1,64 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Horas</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Horas</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Calculadora de Horas</h1>
-        
-        <div class="form-group">
+        <div class="form-container">
+            <h1>Calculadora de Horas</h1>
             <label for="titulo">Título:</label>
             <input type="text" id="titulo" placeholder="Ej: Agenda Villa Mercedes">
-        </div>
-    
-        <div class="form-group">
-            <label for="turno">Turno:</label>
-            <select id="turno">
-                <option>Mañana</option>
-                <option>Tarde</option>
-            </select>
-        </div>
-    
-        <div class="form-group">
-            <label for="horas">Horas disponibles:</label>
-            <input type="number" id="horas" min="0">
-        </div>
-    
-        <div class="form-group">
-            <label for="modo">Modo de distribución:</label>
-            <select id="modo">
-                <option>Solo Reclamos</option>
-                <option>Instalaciones + Reclamos</option>
-                <option>Técnico Único</option>
-                <option>Solo Instalaciones</option>
-            </select>
-        </div>
-    
-        <div class="buttons">
-            <button onclick="generarHorario()">Generar Horario</button>
-            <button onclick="limpiarFormulario()">Limpiar</button>
-        </div>
-    
-        <h2 id="tituloAgenda"></h2>
-    
-        <table>
-            <thead>
-                <tr>
-                   
-                    <th>Tarea</th>
-                    <th>Horas Asignadas</th>
-                </tr>
-            </thead>
-            <tbody id="tablaResultados">
-                
-            </tbody>
-        </table>
-    </div>
-    
 
-    <script src="script.js"></script>
+            <h3>Reclamos</h3>
+            <label>Mañana:</label>
+            <input type="number" class="input-horas" min="0" data-turno="Mañana" data-tipo="Reclamos">
+            <label>Tarde:</label>
+            <input type="number" class="input-horas" min="0" data-turno="Tarde" data-tipo="Reclamos">
+
+            <h3>Instalaciones + Reclamos</h3>
+            <label>Mañana:</label>
+            <input type="number" class="input-horas" min="0" data-turno="Mañana" data-tipo="Instalaciones + Reclamos">
+            <label>Tarde:</label>
+            <input type="number" class="input-horas" min="0" data-turno="Tarde" data-tipo="Instalaciones + Reclamos">
+
+            <h3>Técnico Único</h3>
+            <label>Mañana:</label>
+            <input type="number" class="input-horas" min="0" data-turno="Mañana" data-tipo="Técnico Único">
+            <label>Tarde:</label>
+            <input type="number" class="input-horas" min="0" data-turno="Tarde" data-tipo="Técnico Único">
+
+            <h3>Solo Instalaciones</h3>
+            <label>Mañana:</label>
+            <input type="number" class="input-horas" min="0" data-turno="Mañana" data-tipo="Instalaciones">
+            <label>Tarde:</label>
+            <input type="number" class="input-horas" min="0" data-turno="Tarde" data-tipo="Instalaciones">
+
+            <div class="buttons">
+                <button onclick="generarHorario()">Generar Horario</button>
+                <button onclick="limpiarFormulario()">Limpiar</button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <h2 id="tituloAgenda"></h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Turno</th>
+                        <th>Tarea</th>
+                        <th>Horas Asignadas</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaResultados">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
